@@ -2,16 +2,15 @@ import PropTypes from 'prop-types';
 
 const Mission = (props) => {
   const {
-    id,
-    title,
-    description,
-    status,
+    id, name, description,
   } = props;
   return (
     <tr key={id}>
-      <td>{title}</td>
+      <td>{name}</td>
       <td>{description}</td>
-      <td>{status}</td>
+      <td>
+        <button type="button">NOT A MEMBER</button>
+      </td>
       <td>
         <button type="button">Join Mission</button>
       </td>
@@ -21,9 +20,8 @@ const Mission = (props) => {
 
 Mission.propTypes = {
   id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
 };
 
 export default Mission;

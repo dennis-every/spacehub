@@ -1,26 +1,42 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMissions } from '../redux/missions/missionsSlice';
 import Mission from './Mission';
 
 const MissionsContainer = () => {
-  const missions = [
-    {
-      id: '1',
-      title: 'Thaicom',
-      description: 'Desc 1',
-      status: 'Not a Member',
-    },
-    {
-      id: '2',
-      title: 'Telstart',
-      description: 'Desc 2',
-      status: 'Not a Member',
-    },
-    {
-      id: '3',
-      title: 'Iridium',
-      description: 'Desc 3',
-      status: 'Not a Member',
-    },
-  ];
+  const dispatch = useDispatch();
+  const ifSucceed = useSelector((store) => store.missions.ifSucceed);
+  const isLoading = useSelector((store) => store.missions.isLoading);
+  const missions = useSelector((store) => store.missions.missions);
+
+  useEffect(() => {
+    dispatch(fetchMissions());
+  }, [ifSucceed, dispatch]);
+
+  let content;
+  if (isLoading) {
+    content = (
+      <tr>
+        <td>Loading...</td>
+      </tr>
+    );
+  } else if (ifSucceed) {
+    content = missions.map((mission) => (
+      <Mission
+        key={mission.mission_id}
+        id={mission.mission_id}
+        name={mission.mission_name}
+        description={mission.description}
+        status={mission.status}
+      />
+    ));
+  } else {
+    content = (
+      <tr>
+        <td>Something went wrong...</td>
+      </tr>
+    );
+  }
 
   return (
     <table className="table table-striped table-bordered">
@@ -29,20 +45,10 @@ const MissionsContainer = () => {
           <th>Mission</th>
           <th>Description</th>
           <th>Status</th>
-          <th>{' '}</th>
+          <th> </th>
         </tr>
       </thead>
-      <tbody>
-        {missions.map((mission) => (
-          <Mission
-            key={mission.id}
-            id={mission.id}
-            title={mission.title}
-            description={mission.description}
-            status={mission.status}
-          />
-        ))}
-      </tbody>
+      <tbody>{content}</tbody>
     </table>
   );
 };
