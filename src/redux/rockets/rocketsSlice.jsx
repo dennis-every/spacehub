@@ -1,12 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+const url = 'https://api.spacexdata.com/v3/rockets';
+export const getRockets = createAsyncThunk('rockets/getRockets',
+  async () => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const newData = [];
+      let newObj = {};
+      data.forEach((e) => {
+        newObj = {
+          rocketId: e.rocket_id,
+          image: e.flickr_images[0],
+          name: e.rocket_name,
+          description: e.description,
+        };
+        newData.push(newObj);
+      });
+      return newData;
+    } catch (error) {
+      return error.message();
+    }
+  });
 
 const initialState = {
-  rockets: [{
-    rocketId: 'falcon1',
-    image: 'https://imgur.com/DaCfMsj.jpg',
-    name: 'Falcon 1',
-    description: 'The Falcon 1 was an expendable launch system privately developed and manufactured by SpaceX during 2006-2009. On 28 September 2008, Falcon 1 became the first privately-developed liquid-fuel launch vehicle to go into orbit around the Earth.',
-  }],
+  rockets: [],
   isLoading: true,
 };
 
@@ -14,6 +32,22 @@ const rocketsSlice = createSlice({
   name: 'rockets',
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getRockets.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(getRockets.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        rockets: action.payload,
+      }))
+      .addCase(getRockets.rejected, (state) => ({
+        ...state,
+        isLoading: false,
+      }));
+  },
 });
 
 export default rocketsSlice.reducer;
