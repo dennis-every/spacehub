@@ -14,6 +14,7 @@ export const getRockets = createAsyncThunk('rockets/getRockets',
           image: e.flickr_images[0],
           name: e.rocket_name,
           description: e.description,
+          reserved: false,
         };
         newData.push(newObj);
       });
