@@ -4,7 +4,7 @@ const MissionsContainer = () => {
   const missions = [];
 
   return (
-    <table className='table table-striped table-bordered'>
+    <table className="table table-striped table-bordered">
       <thead>
         <tr>
           <th>Mission</th>
