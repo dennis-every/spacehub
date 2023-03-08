@@ -1,35 +1,16 @@
 import Mission from './Mission';
 
 const MissionsContainer = () => {
-  const missions = [
-    {
-      id: '1',
-      title: 'Thaicom',
-      description: 'Desc 1',
-      status: 'Not a Member',
-    },
-    {
-      id: '2',
-      title: 'Telstart',
-      description: 'Desc 2',
-      status: 'Not a Member',
-    },
-    {
-      id: '3',
-      title: 'Iridium',
-      description: 'Desc 3',
-      status: 'Not a Member',
-    },
-  ];
+  const missions = [];
 
   return (
-    <table className="table table-striped table-bordered">
+    <table className='table table-striped table-bordered'>
       <thead>
         <tr>
           <th>Mission</th>
           <th>Description</th>
           <th>Status</th>
-          <th>{' '}</th>
+          <th> </th>
         </tr>
       </thead>
       <tbody>
