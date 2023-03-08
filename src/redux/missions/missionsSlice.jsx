@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -24,18 +23,22 @@ const missionsSlice = createSlice({
   name: 'missions',
   initialState,
   reducers: {},
-  extraReducers: {
-    [fetchMissions.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [fetchMissions.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.ifSucceed = true;
-      state.missions = action.payload;
-    },
-    [fetchMissions.rejected]: (state) => {
-      state.isLoading = false;
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchMissions.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
+      .addCase(fetchMissions.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        ifSucceed: true,
+        missions: action.payload,
+      }))
+      .addCase(fetchMissions.rejected, (state) => ({
+        ...state,
+        isLoading: false,
+      }));
   },
 });
 
