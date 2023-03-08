@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import style from '../styles/Rocket.module.css';
 
 const Rocket = ({
-  rocketId, image, name, description, reserved
+  rocketId, image, name, description, reserved,
 }) => (
   <div className={style.container}>
     <img src={image} alt={name} className={style.image} />
@@ -25,6 +25,7 @@ Rocket.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  reserved: PropTypes.bool.isRequired,
 };
 
 export default Rocket;
