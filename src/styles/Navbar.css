@@ -20,7 +20,7 @@ nav {
 
 .nav_index {
   display: flex;
-  align-items: baseline;  
+  align-items: baseline;
 }
 
 .nav_title {
@@ -58,7 +58,7 @@ nav {
 }
 
 .nav_img {
-  align-self: center;  
+  align-self: center;
   height: 60px;
   margin: 20px 0 0 20px;
 }
