@@ -46,8 +46,8 @@ const rocketsSlice = createSlice({
       .addCase(getRockets.rejected, (state) => ({
         ...state,
         isLoading: false,
-      }))
-  }
+      }));
+  },
 });
 
 export default rocketsSlice.reducer;
