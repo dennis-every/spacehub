@@ -13,6 +13,7 @@ const RocketsContainer = () => {
           image={item.image}
           name={item.name}
           description={item.description}
+          reserved={item.reserved}
         />
       ))}
 

@@ -5,7 +5,9 @@ import { getRockets } from '../redux/rockets/rocketsSlice';
 
 const Rockets = () => {
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.rockets);
+  const {
+    isLoading,
+  } = useSelector((state) => state.rockets);
 
   useEffect(() => {
     dispatch(getRockets());
