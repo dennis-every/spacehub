@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
+import style from '../styles/Rocket.module.css';
 
 const Rocket = ({
   rocketId, image, name, description,
 }) => (
-  <div>
-    <img src={image} alt={name} />
-    <div>
+  <div className={style.container}>
+    <img src={image} alt={name} className={style.image} />
+    <div className={style.text}>
       <h3>{name}</h3>
       <p>{description}</p>
-      <button type="button" id={rocketId}>Reserve Rocket</button>
+      <Button variant="primary" id={rocketId}>Reserve Rocket</Button>
     </div>
   </div>
 );
