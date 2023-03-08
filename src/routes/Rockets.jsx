@@ -1,3 +1,5 @@
-const Rockets = () => <h1>This is the Rockets page...</h1>;
+import RocketsContainer from '../components/RocketsContainer';
+
+const Rockets = () => <div><RocketsContainer /></div>;
 
 export default Rockets;
