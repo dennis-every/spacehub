@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { joinMission } from '../redux/missions/missionsSlice';
+import { joinMission, leaveMission } from '../redux/missions/missionsSlice';
 
 const Mission = ({ mission }) => {
   const dispatch = useDispatch();
@@ -9,25 +9,50 @@ const Mission = ({ mission }) => {
     dispatch(joinMission(id));
   };
 
+  const leaveMissionHandler = (id) => {
+    dispatch(leaveMission(id));
+  };
+
   return (
     <tr>
       <td>{mission.mission_name}</td>
       <td>{mission.description}</td>
       <td>
         {mission.reserved === true ? (
-          <button type="button">Active Member</button>
+          <button
+            className="btn btn-info btn-sm"
+            style={{ color: 'white' }}
+            type="button"
+          >
+            Active Member
+          </button>
         ) : (
-          <button type="button">Not a Member</button>
+          <button
+            className="btn btn-secondary btn-sm"
+            type="button"
+          >
+            Not a Member
+          </button>
         )}
       </td>
       <td>
-        <button
-          className="btn btn-outline-secondary btn-sm"
-          type="button"
-          onClick={() => joinMissionHandler(mission.mission_id)}
-        >
-          Join Mission
-        </button>
+        {mission.reserved === true ? (
+          <button
+            className="btn btn-outline-danger btn-sm"
+            type="button"
+            onClick={() => leaveMissionHandler(mission.mission_id)}
+          >
+            Leave Mission
+          </button>
+        ) : (
+          <button
+            className="btn btn-outline-secondary btn-sm"
+            type="button"
+            onClick={() => joinMissionHandler(mission.mission_id)}
+          >
+            Join Mission
+          </button>
+        )}
       </td>
     </tr>
   );
