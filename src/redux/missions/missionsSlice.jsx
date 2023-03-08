@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -10,17 +11,14 @@ const initialState = {
   errors: null,
 };
 
-const fetchMissions = createAsyncThunk(
-  'missions/fetchMissions',
-  async () => {
-    try{
-      const response = await axios.get(MISSIONS_URL);
-      return response
-    } catch (err) {
-      return err.message;
-    }
-  },
-);
+const fetchMissions = createAsyncThunk('missions/fetchMissions', async () => {
+  try {
+    const response = await axios.get(MISSIONS_URL);
+    return response;
+  } catch (err) {
+    return err.message;
+  }
+});
 
 const missionsSlice = createSlice({
   name: 'missions',
@@ -30,7 +28,7 @@ const missionsSlice = createSlice({
     [fetchMissions.pending]: (state) => {
       state.isLoading = true;
     },
-    [fetchMissions.fulfilled]: (state) => {
+    [fetchMissions.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.ifSucceed = true;
       state.missions = action.payload;
@@ -41,6 +39,6 @@ const missionsSlice = createSlice({
   },
 });
 
-export { fetchMissions }
+export { fetchMissions };
 
 export default missionsSlice.reducer;
