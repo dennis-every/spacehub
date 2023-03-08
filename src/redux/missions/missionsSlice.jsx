@@ -14,7 +14,7 @@ const initialState = {
 const fetchMissions = createAsyncThunk('missions/fetchMissions', async () => {
   try {
     const response = await axios.get(MISSIONS_URL);
-    return response;
+    return response.data;
   } catch (err) {
     return err.message;
   }
