@@ -24,6 +24,12 @@ export const getRockets = createAsyncThunk('rockets/getRockets',
     }
   });
 
+const setReserved = state.map(rocket => {
+  if (rocket.rocketId !== id)
+    return rocket;
+  return { ...rocket, reserved: true };
+});
+
 const initialState = {
   rockets: [],
   isLoading: true,
@@ -47,6 +53,11 @@ const rocketsSlice = createSlice({
       .addCase(getRockets.rejected, (state) => ({
         ...state,
         isLoading: false,
+      }))
+      .addCase(setReserved.fulfilled, (state, action) => ({
+        ...state,
+        isLoading: false,
+        rockets: action.payload,
       }));
   },
 });

@@ -4,14 +4,18 @@ import Button from 'react-bootstrap/Button';
 import style from '../styles/Rocket.module.css';
 
 const Rocket = ({
-  rocketId, image, name, description,
+  rocketId, image, name, description, reserved
 }) => (
   <div className={style.container}>
     <img src={image} alt={name} className={style.image} />
     <div className={style.text}>
       <h3>{name}</h3>
-      <p>{description}</p>
-      <Button variant="primary" id={rocketId}>Reserve Rocket</Button>
+      <p>
+        {reserved && <Button>Reserved</Button>}
+        {description}
+      </p>
+      {!reserved && <Button variant="primary" id={rocketId}>Reserve Rocket</Button>}
+      {reserved && <Button variant="primary" id={rocketId}>Cancel Reservation</Button>}
     </div>
   </div>
 );
