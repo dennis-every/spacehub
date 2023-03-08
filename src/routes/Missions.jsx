@@ -1,3 +1,5 @@
-const Missions = () => <h1>This is the missions page...</h1>;
+import MissionsContainer from '../components/MissionsContainer';
+
+const Missions = () => <MissionsContainer />;
 
 export default Missions;
