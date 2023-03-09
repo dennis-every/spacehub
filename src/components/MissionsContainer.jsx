@@ -24,7 +24,7 @@ const MissionsContainer = () => {
     );
   } else if (ifSucceed) {
     content = missionsArray.map((mission) => (
-      <Mission key={mission.mission_id} mission={mission} />
+      <tr key={mission.mission_id}><Mission mission={mission} /></tr>
     ));
   } else {
     content = <tr><td>Something went wrong...</td></tr>;

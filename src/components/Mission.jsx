@@ -14,7 +14,7 @@ const Mission = ({ mission }) => {
   };
 
   return (
-    <tr>
+    <>
       <td>{mission.mission_name}</td>
       <td>{mission.description}</td>
       <td>
@@ -56,7 +56,7 @@ const Mission = ({ mission }) => {
           </button>
         )}
       </td>
-    </tr>
+    </>
   );
 };
 
