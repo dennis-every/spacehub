@@ -19,11 +19,11 @@ const Rocket = ({
       <div className={style.text}>
         <h3>{name}</h3>
         <p>
-          {reserved && <Button>Reserved</Button>}
+          {reserved && <Button size="sm">Reserved</Button>}
           {description}
         </p>
         {!reserved && <Button variant="primary" id={rocketId} onClick={({ target }) => handler(target)}>Reserve Rocket</Button>}
-        {reserved && <Button variant="primary" id={rocketId}>Cancel Reservation</Button>}
+        {reserved && <Button variant="outline-secondary" id={rocketId} onClick={({ target }) => handler(target)}>Cancel Reservation</Button>}
       </div>
     </div>
   );
