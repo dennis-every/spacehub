@@ -18,7 +18,7 @@ const Mission = ({ mission }) => {
       <td>{mission.mission_name}</td>
       <td>{mission.description}</td>
       <td>
-        {mission.reserved === true ? (
+        {mission.reserved && (
           <button
             className="btn btn-info btn-sm"
             style={{ color: 'white' }}
@@ -26,7 +26,8 @@ const Mission = ({ mission }) => {
           >
             Active Member
           </button>
-        ) : (
+        )}
+        {!mission.reserved && (
           <button
             className="btn btn-secondary btn-sm"
             type="button"
@@ -36,7 +37,7 @@ const Mission = ({ mission }) => {
         )}
       </td>
       <td>
-        {mission.reserved === true ? (
+        {mission.reserved && (
           <button
             className="btn btn-outline-danger btn-sm"
             type="button"
@@ -44,7 +45,8 @@ const Mission = ({ mission }) => {
           >
             Leave Mission
           </button>
-        ) : (
+        )}
+        {!mission.reserved && (
           <button
             className="btn btn-outline-secondary btn-sm"
             type="button"
