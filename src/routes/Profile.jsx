@@ -1,4 +1,5 @@
 import JoinedMissions from '../components/JoinedMissions';
+import ReservedRockets from '../components/ReservedRockets';
 
 const Profile = () => (
   <section className="container row">
@@ -6,7 +7,7 @@ const Profile = () => (
       <JoinedMissions />
     </div>
     <div className="col">
-      <JoinedMissions />
+      <ReservedRockets />
     </div>
   </section>
 );
