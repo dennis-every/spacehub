@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import Home from './components/Home';
 import Missions from './routes/Missions';
 import Rockets from './routes/Rockets';
 import Profile from './routes/Profile';
@@ -11,7 +10,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Missions />} />
           <Route path="missions" element={<Missions />} />
           <Route path="rockets" element={<Rockets />} />
           <Route path="profile" element={<Profile />} />
