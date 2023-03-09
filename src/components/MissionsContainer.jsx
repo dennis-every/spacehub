@@ -10,8 +10,10 @@ const MissionsContainer = () => {
   const missionsArray = useSelector((state) => state.missions.missionsArray);
 
   useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch, ifSucceed]);
+    if (missionsArray.length === 0) {
+      dispatch(fetchMissions());
+    }
+  }, [dispatch, ifSucceed, missionsArray]);
 
   let content;
   if (isLoading) {
