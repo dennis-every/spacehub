@@ -4,6 +4,8 @@ import Rocket from './Rocket';
 
 const RocketsContainer = () => {
   const { rockets } = useSelector((state) => state.rockets);
+
+  console.log('Rockets inside container ', rockets);
   return (
     <div>
       {rockets.map((item) => (
@@ -13,6 +15,7 @@ const RocketsContainer = () => {
           image={item.image}
           name={item.name}
           description={item.description}
+          reserved={item.reserved}
         />
       ))}
 
