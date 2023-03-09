@@ -7,11 +7,11 @@ const MissionsContainer = () => {
   const dispatch = useDispatch();
   const ifSucceed = useSelector((store) => store.missions.ifSucceed);
   const isLoading = useSelector((store) => store.missions.isLoading);
-  const missions = useSelector((store) => store.missions.missions);
+  const missionsArray = useSelector((state) => state.missions.missionsArray);
 
   useEffect(() => {
     dispatch(fetchMissions());
-  }, [ifSucceed, dispatch]);
+  }, [dispatch, ifSucceed]);
 
   let content;
   if (isLoading) {
@@ -21,35 +21,27 @@ const MissionsContainer = () => {
       </tr>
     );
   } else if (ifSucceed) {
-    content = missions.map((mission) => (
-      <Mission
-        key={mission.mission_id}
-        id={mission.mission_id}
-        name={mission.mission_name}
-        description={mission.description}
-        status={mission.status}
-      />
+    content = missionsArray.map((mission) => (
+      <Mission key={mission.mission_id} mission={mission} />
     ));
   } else {
-    content = (
-      <tr>
-        <td>Something went wrong...</td>
-      </tr>
-    );
+    content = <tr><td>Something went wrong...</td></tr>;
   }
 
   return (
-    <table className="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th>Mission</th>
-          <th>Description</th>
-          <th>Status</th>
-          <th> </th>
-        </tr>
-      </thead>
-      <tbody>{content}</tbody>
-    </table>
+    <div className="container">
+      <table className="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th className="w-10">Mission</th>
+            <th className="w-50">Description</th>
+            <th className="w-20">Status</th>
+            <th className="w-20"> </th>
+          </tr>
+        </thead>
+        <tbody>{content}</tbody>
+      </table>
+    </div>
   );
 };
 
