@@ -7,10 +7,13 @@ const Rockets = () => {
   const dispatch = useDispatch();
   const {
     isLoading,
+    rockets,
   } = useSelector((state) => state.rockets);
 
   useEffect(() => {
-    dispatch(getRockets());
+    if (rockets.length === 0) {
+      dispatch(getRockets());
+    }
   }, [dispatch]);
 
   if (isLoading) {
