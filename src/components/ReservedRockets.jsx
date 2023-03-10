@@ -1,10 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../redux/redux-hooks';
 
 const ReservedRockets = () => {
-  const { rockets } = useSelector((state) => state.rockets);
+  const { rockets } = useAppSelector((state) => state.rockets);
   const reserved = rockets.filter((rocket) => rocket.reserved === true);
-  console.log(reserved);
   return (
     <>
       <h3>My Rockets</h3>

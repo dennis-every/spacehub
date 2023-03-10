@@ -1,11 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../redux/redux-hooks';
 import Rocket from './Rocket';
 
 const RocketsContainer = () => {
-  const { rockets } = useSelector((state) => state.rockets);
-
-  console.log('Rockets inside container ', rockets);
+  const { rockets } = useAppSelector((state) => state.rockets);
   return (
     <div>
       {rockets.map((item) => (

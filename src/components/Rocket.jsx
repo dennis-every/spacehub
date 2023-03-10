@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../redux/redux-hooks';
 import style from '../styles/Rocket.module.css';
 import { setReserved } from '../redux/rockets/rocketsSlice';
 
 const Rocket = ({
   rocketId, image, name, description, reserved,
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handler = (elem) => {
     dispatch(setReserved(elem.id));
   };
