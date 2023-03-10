@@ -14,7 +14,8 @@ const render = (component) => rtlRender(
 
 describe('Components render correctly', () => {
   test('Rocket', () => {
-    const tree = render(<Rocket />);
+    const tree = render(
+      <Rocket />);
     expect(tree).toMatchSnapshot();
   });
   test('RocketsContainer', () => {
