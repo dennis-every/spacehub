@@ -14,7 +14,7 @@ const Rockets = () => {
     if (rockets.length === 0) {
       dispatch(getRockets());
     }
-  }, [dispatch]);
+  }, [dispatch, rockets.length]);
 
   if (isLoading) {
     return (
