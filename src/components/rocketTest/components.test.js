@@ -6,6 +6,7 @@ import ReservedRockets from '../ReservedRockets';
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
 
+
 const render = component => rtlRender(
   <Provider store={store}>
     {component}
