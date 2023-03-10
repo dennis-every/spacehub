@@ -4,8 +4,6 @@ import Rocket from './Rocket';
 
 const RocketsContainer = () => {
   const { rockets } = useAppSelector((state) => state.rockets);
-
-  console.log('Rockets inside container ', rockets);
   return (
     <div>
       {rockets.map((item) => (

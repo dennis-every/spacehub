@@ -2,4 +2,6 @@ const state = {
   rockets: [],
   isLoading: true,
 };
-export const testSelector = (f) => f(state);
+const testSelector = (f) => f(state);
+
+export default testSelector;
