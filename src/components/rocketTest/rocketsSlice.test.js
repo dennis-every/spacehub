@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import RocketsContainer from '../RocketsContainer';
-import store from '../../redux/store'
+import store from '../../redux/store';
 
 const mockStore = configureStore([]);
 
@@ -26,8 +26,8 @@ describe('Rockets redux state tests', () => {
     ];
     const state = {
       rockets: {
-        rockets,        
-        isLoading: false,        
+        rockets,
+        isLoading: false,
       },
     };
     const store = mockStore(state);
