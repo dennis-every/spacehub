@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/spacehub/static/css/main.dac12c39.css",
+    "main.js": "/spacehub/static/js/main.8688f4bf.js",
+    "static/js/787.8ef65055.chunk.js": "/spacehub/static/js/787.8ef65055.chunk.js",
+    "static/media/logo.png": "/spacehub/static/media/logo.3f6fb2742f28651730c0.png",
+    "index.html": "/spacehub/index.html",
+    "main.dac12c39.css.map": "/spacehub/static/css/main.dac12c39.css.map",
+    "main.8688f4bf.js.map": "/spacehub/static/js/main.8688f4bf.js.map",
+    "787.8ef65055.chunk.js.map": "/spacehub/static/js/787.8ef65055.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dac12c39.css",
+    "static/js/main.8688f4bf.js"
+  ]
+}
